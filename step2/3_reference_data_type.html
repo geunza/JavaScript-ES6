@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reference data type</title>
+</head>
+<body>
+    
+    <script>
+        var name = 'john';
+        var age = 20;
+        var age2 = age;
+        age++;
+        //console.log(age);
+        //console.log(age2);
+
+        var human1 = {
+            name : 'park',
+            age : 29,
+        }
+        var human2 = human1;
+        human1.name = 'kim';
+        //console.log(human1);
+        //console.log(human2);
+        
+        var arr1 = [1,2,3,4];
+        var arr2 = arr1;
+        arr1[1] = 100;
+        //console.log(arr1);
+        //console.log(arr2);
+
+        var name1 = {name : 'kim'};
+        var name2 = {name : 'kim'};
+        //console.log(name1 == name2);
+
+        var n_name1 = {name : 'kim'};
+        var n_name2 = {name : 'kim'};
+        function change(obj1, obj2){
+            obj1 = {name : 'park'};
+            obj2.name = 'park';
+        }
+        change(n_name1, n_name2);
+        console.log(n_name1);
+        console.log(n_name2);
+    </script>
+</body>
+</html>

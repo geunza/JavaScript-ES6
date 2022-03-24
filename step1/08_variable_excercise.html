@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div style="display : none">모달창0</div>
+    <div style="display : none">모달창1</div>
+    <div style="display : none">모달창2</div>
+
+    <button>버튼0</button>
+    <button>버튼1</button>
+    <button>버튼2</button>
+
+    <script>
+        //문제 1~4. 다음 코드의 출력 결과는?
+        //문제.1 => ERROR
+        /*
+        fnc1();
+        function fnc1(){
+            console.log(안녕);
+            let 안녕 = 'Hello';
+        }
+        */
+
+        //문제.2
+        // 내 답 : undefined => fnc2 자체가 실행되지 않음. Why? fnc2가 호이스팅되서 선언되지 않는가?
+        // 정답 : ERROR => function fnc2(){}는 전체가 hoisting 되지만, var fnc2 = function(){}은 선언부분만 Hoisting 됨.
+        /*
+        fnc2();
+        var fnc2 = function(){
+            console.log(안녕);
+            var 안녕 = 'Hello!';
+        }
+        */
+
+        //문제.3
+        // 내 답 : 2 // var fnc3 = function(){}은 선언과 동시에 선언되는 것으로 착각.
+        // 정답 : 1
+        let a1 = 1;
+        var fnc3 = function(){
+            a1 = 2;
+        }
+        console.log(a1);
+
+        //문제.4 => 7
+        // 내 답 : 7
+        // 정답 : 5 => let a2로 호이스팅 된 상황에서 window.a2는 정상동작 X; a2 = 1; b2 = 4로 a2 + b2 = 5
+        let a2 = 1;
+        var b2 = 2;
+        window.a2 = 3;
+        window.b2 = 4;
+        console.log(a2+b2);
+
+
+        //문제.5 다음 코드가 정상적으로 실행되지 않는 이유는?
+        //내 답 : 해당 setTiemout은 "호출이 된 후 i*1000초마다 실행"되는 것
+        //        즉 실행을 시키고 나서 i값을 출력을 할 때에는 이미 반복문이 끝나고 값이 커져있기에
+        for(var i = 1; i < 5; i++){
+            setTimeout(function(){
+                console.log("i = " + i);
+            }, i*1000);
+        }
+        for(let k = 1; k < 5; k++){
+            setTimeout(function(){
+                console.log("k = " + k);
+            }, k*1000);
+        }
+
+
+        //문제.6 다음 코드가 정상적으로 실행되지 않는 이유는?
+        //내 답 : btns[j]에 이벤트리스너는 정상적으로 등록이 되나, 클릭시 실행됬을 때에 modals[j]의 j를 인식하지 못하기에?
+        var btns = document.querySelectorAll("button");
+        var modals = document.querySelectorAll("div");
+        for(var j = 0; j < 3; j++){
+            btns[j].addEventListener("click", function(){
+                modals[j].style.display = 'block';
+            });
+        }
+        for(let v = 0; v < 3; v++){
+            btns[v].addEventListener("click", function(){
+                modals[v].style.display = 'block';
+            });
+        }
+
+    </script>
+</body>
+</html>

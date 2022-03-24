@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>literal - exam</title>
+</head>
+<body>
+    <div></div>
+
+    <script>
+        var pants = 0;
+        var socks = 100;
+        
+        function 해체분석기(a, b, c){
+            if(b == 0){
+                console.log(`바지 다팔렸어요 양말 ${c}`);
+            }
+            console.log(a[1] + b + a[0] + c);
+        }        
+
+        해체분석기`바지${pants} 양말${socks}`;
+
+    </script>
+</body>
+</html>

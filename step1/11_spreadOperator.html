@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div></div>
+
+    <script>
+        var arr = ['hello', 'world'];
+        var str = "Hello World"
+        var arr1 = [1,2,3];
+        var arr2 = [...arr1, 4, 5];
+        console.log(arr2);
+        var obj1 = {a : 1, b : 2};
+        var obj2 = {...obj1, a : 2, c : 3};
+        console.log(obj2);
+
+        function add(a, b, c){
+            console.log(a + b + c);
+        }
+        add(1,2,3);
+        var arr3 = [10, 20, 30];
+        add(arr3[0],arr3[1],arr3[2]) // 이것도 사용 가능. 주먹구구식
+        add.apply(undefined, arr3); // 이것도 사용 가능. 옛날 방식
+        add(...arr3); // 이것도 사용 가능. 요즘 방식
+
+
+        //apply
+        var person = {
+            인사 : function(){
+                console.log(this.name + "안녕");
+            }
+        }
+        var person2 = {
+            name : '손흥민',
+        }
+        person.인사.apply(person2, [1,2]);
+
+        //call
+        person.인사.call(person2, 1, 2)
+        /*
+            apply: parameter를 추가할 때에 array형태로 가능
+            call: parameter를 추가할 때에 array가 아닌 형태로 가능
+        */
+    </script>
+</body>
+</html>

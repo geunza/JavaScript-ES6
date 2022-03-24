@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>함수 업그레이드</title>
+</head>
+<body>
+    <div></div>
+
+    <script>
+        function fnc1(){
+            return 10;
+        }
+        function add(a, b = fnc1()){
+            console.log(a + b);
+        }
+        //add(5);
+
+        function fnc2(a, b, c){ // a, b, c : parameter
+            console.log(a, b, c) // a, b, c : argument
+            console.log(arguments);
+            console.log(arguments[0]);
+            console.log(arguments[1]);
+            console.log(arguments[2]);
+
+            /*
+                함수에 들어온 parameter를 싸잡아서 다룰 수 있게 해주는 arguments = > Array처럼 동작
+            */
+        }
+        //fnc2(1, 2, 3);
+
+        function fnc3(a, b, c){
+            for(i = 0; i < arguments.length; i++){
+                console.log(arguments[i]); // parameter는 3개뿐이지만, 그 이상으로도 확장이 가능
+                //arguments는 모든 parameter를 []에 담아줌
+            }
+            console.log(Math.max(...arguments));
+        }
+        //fnc3(1, 2, 3, 4, 5);
+
+        function fnc4(a, b,...parameters){ //rest 파라미터
+            console.log(parameters);
+            //이 자리에 오는 모든 파라미터를 []에 담아줌
+            //함수 파라미터 자리에 붙으면 rest, 나머지는 전부 spread
+        }
+        //fnc4(1,2,3,4,5,6,7,8);
+
+        function fnc5(...params){
+            for(i = 0; i < params.length; i++){
+                console.log("fnc5. params는 " + params[i]);
+            }
+            console.log("\n");
+        }
+        function fnc6(){
+            for(j = 0; j < arguments.length; j++){
+                console.log("fnc6. arguments는 " + arguments[j]);
+            }
+            console.log("\n");
+        }
+        function fnc7(a, b){
+            for(k = 0; k < arguments.length; k++){
+                console.log("fnc7." + arguments[k]);
+            }
+            console.log("\n");
+        }
+        fnc5(2,3,4,12342134,12342352346,"AASDFSDF");
+        fnc6(2,3,4,12342134,12342352346,"AASDFSDF");
+        fnc7(2,3,4,12342134,12342352346,"AASDFSDF");
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>prototype exam</title>
+</head>
+<body>
+    <script>
+        // 1.
+        /*
+        function student(name, age){
+            this.name = name;
+            this.age = age;
+            this.sayHi = function(){
+                console.log(`안녕 나는 ${this.name}이야`);
+            };
+        }
+        var student1 = new student("Kim", 20);
+        var student2 = new student('Park', 21);
+        var student3 = new student('Lee', 22);
+        console.log(student1);
+        console.log(student2);
+        console.log(student3);
+        */
+
+        // 2.
+        /*
+        function Parent(){
+            this.name = 'Kim';
+        }
+        var a = new Parent();
+
+        a.__proto__.name = 'Park';
+        console.log(a.name)
+        */
+
+        // 3.
+        /*
+        function Student(이름, 나이){
+            this.name = 이름;
+            this.age = 나이;
+        }
+
+        Student.prototype.sayHi = () => {
+            console.log('안녕 나는 ' + this.name + '이야');
+        }
+        var 학생1 = new Student('Kim', 20);
+
+        학생1.sayHi(); //왜 이 코드가 제대로 안나오죠?
+        */
+
+        // 4.
+        var arr = [1,2,3,4,5,6];
+        
+        //console.log(arr); //[1,2]
+        var i = 0;
+        Array.prototype.remove3 = function(){
+            this.forEach((a) => {
+                if(a == 3){
+                    //console.log(a);
+                    this.splice(i, 1);
+                }
+                //console.log(i);
+                i++;
+            });
+        }
+        arr.remove3();
+        console.log(arr);
+
+        
+    </script>
+</body>
+</html>

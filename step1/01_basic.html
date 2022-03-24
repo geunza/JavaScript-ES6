@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>기본 문법</title>
+</head>
+<body>
+    <p id="hello">안녕</p>
+    <button id="button">버튼</button>
+
+    <script>
+        /*
+        for(var i = 0; i < 5; i++){
+            console.log("HI");
+        }*/
+
+        [1,2,3,4].forEach(function(a){
+            console.log(a);
+        });
+
+        /*
+        if(1 === '1'){
+            console.log("조건1 성립O")
+        }else if(2 == 2){
+            console.log("조건1 성립X, 조건2 성립O")
+
+        }else{
+            console.log("조건1 성립X, 조건2 성립X")
+        }
+        */
+        
+        /*
+        var name1 = ['kim', 'park'];
+        console.log(name1[0])
+        var name2 = {name:'kim', age:20};
+        console.log(name2.age)
+        */
+
+        /*
+        document.getElementById("button").addEventListener("click", ()=>{
+            fnc1("GGGG");
+        });
+        function fnc1(param){
+            document.getElementById("hello").innerHTML = param;
+        }
+        var name = "park";
+        */
+    </script>
+    <!-- 
+        document. => 도큐먼트 내부에서
+        getElementById("aa"). => aa라는 id를 가진 요소의
+        addEventListener => 이벤트 리스너를 부착한다.
+        innerHTML => 내부 HTML을 변경하고자 한다.
+    -->
+</body>
+</html>

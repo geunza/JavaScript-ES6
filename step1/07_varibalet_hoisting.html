@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div></div>
+
+    <script>
+        if(true){
+            let a = 1;
+            var b = 2;
+            if(true){
+                let b = 3;
+
+            }
+            console.log(b);
+        }
+
+        var age = 20; //전역변수
+        window.name = 'kim';
+        function fnc1(){
+            var name = 'Park';//지역변수
+        }
+        fnc1();
+        console.log(age);
+        console.log(name);
+
+        /*
+            호이스팅
+            var age = 30; 이라고 선언 및 초기화를 한다면
+            var age;
+            age = 30;
+            이런식으로 변수의 선언을 변수 범위 맨 위로 끌고 오는 현상.
+        */
+    </script>
+</body>
+</html>

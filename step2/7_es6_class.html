@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ES6 환경의 상속(class)</title>
+</head>
+<body>
+    <script>
+        class parent {
+            constructor(aa){
+                this.name = aa;
+                this.sayHi = function(){ console.log('hello'); };
+                //여기서 생성한 함수는 object에 직접 추가 됨.
+            }
+            //여기서 생성한 함수는 prototype에 추가되는 함수. 즉 child의 object에 바로 보이지 않는다.
+            sayHi2(){
+                console.log('Hi2');
+            }
+        }
+        parent.prototype.sayHello2 = function(){console.log(hello2);};
+        var child = new parent('Park');
+        console.log(child);
+        console.log(child.__proto__);
+        console.log(Object.getPrototypeOf(child));
+    </script>
+</body>
+</html>

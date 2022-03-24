@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Object, Constructor</title>
+</head>
+<body>
+    <script>
+        /*
+        function mch(naming, aging){
+            this.name = naming;
+            this.age = aging;
+            this.sayHi = function(){
+                console.log(`안녕하세요 ${this.name} 입니다`);
+            }
+        }
+        var 학생1 = new mch('Park', 29);
+        var 학생2 = new mch('Kim', 24);
+        console.log(학생1.sayHi);
+        console.log(학생2.sayHi);
+        */
+
+        var product1 = { name : 'shirts', price : 50000 };
+        var product2 = { name : 'pants', price : 60000 };
+        function prd(prd_name, prd_price){
+            this.name = prd_name;
+            this.price = prd_price;
+            this.tax = function(){
+                console.log(this.price * 0.1);
+            }
+        }
+        var prd1 = new prd('shirts', 50000);
+        var prd2 = new prd('pants', 60000);
+        prd1.tax();
+        prd2.tax();
+        
+    </script>
+</body>
+</html>

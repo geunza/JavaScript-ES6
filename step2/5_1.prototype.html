@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>prototype</title>
+</head>
+<body>
+    <script>
+        function mch(name, age){
+            this.name = name;
+            this.age = age;
+            this.sayHi = function(){
+                console.log(`안녕하세요. ${this.name} 입니다.`);
+            };
+        }
+        mch.prototype.gender = "male";
+        mch.prototype.name = "male";
+
+        var student1 = new mch('Park', 29);
+        var student2 = new mch('Kim', 24);
+        //console.log(student1.name);
+
+        var parent = {name : 'Kim'};
+        var child = {};
+        child.__proto__ = parent;
+        console.log(child);
+        console.log(child.name);
+
+    </script>
+</body>
+</html>

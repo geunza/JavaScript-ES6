@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>this_1</title>
+</head>
+<body>
+    <div></div>
+    <script>
+        console.log(this);
+
+        var obj2 = {
+            data : {
+                fnc3 : () => {
+                    console.log(this);
+                }
+            }
+        }
+        console.log(obj2.data.fnc3());
+        /*
+        var obj1 = {
+            data : 'Park',
+            fnc2 : function(){
+                console.log(this); // this : 나를 포함하고 있는 오브젝트
+            }
+        }
+        console.log(obj1.fnc2());
+        */
+        /*
+        'use strict';
+
+        console.log(this);
+
+        function fnc1(){
+            console.log(this);
+        }
+        fnc1();
+        */
+        // 그냥 쓰거나 function 안에서 쓰면 {window}
+        // strict mode function 안에서 쓰면 {undefined}
+    </script>
+</body>
+</html>

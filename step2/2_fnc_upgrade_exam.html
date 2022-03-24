@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function exam_01(){
+            var a = [1,2,3];
+            var b = '김밥';
+            var c = [...b, ...a];
+            console.log(c);
+            //위 코드의 출력 결과는?
+        }
+        //내 답 : 
+        console.log("1. ['김','밥',1,2,3]");
+        exam_01();
+
+        function exam_02(){
+            var a = [1,2,3];
+            var b = ['you', 'are'];
+            var c = function(a,b){
+                console.log( [[...a], ...[...b]][1] )
+            }
+            c(a,b);
+            //대괄호가 가득한 위 코드의 출력 결과는?
+        }
+        //내 답 :
+        console.log("2.  [[1,2,3], 'y','o','u']");
+        //정답 : 'you'
+        exam_02();
+        
+        function exam_03(){
+            function 함수(a = 5, b = a * 2 ){
+                console.log(a + b);
+                return 10
+            }
+            함수(3);
+            //위 코드의 출력 결과는?
+        }
+        //내 답 :
+        console.log("3. 9");
+        exam_03();
+        
+
+        function exam_04(){
+            function 함수(a = 5, b = a * 2 ){
+                console.log(a + b);
+            }
+            함수(undefined, undefined);
+            //위 코드의 출력 결과는?
+        }
+        //내 답 :
+        console.log("4. 15");
+        exam_04();
+
+        
+        function exam_05(){
+            function 어레이(...params){
+                //(여기 어떤코드가 들어가면 될까요?)
+                return params;
+            }
+
+            var newArray = 어레이(1,2,3,4,5,7,8,9,10);
+            console.log(newArray);
+
+            /*
+            이렇게 작성하면 [1,2,3,4,5]가 출력되어야합니다.
+            함수에 숫자를 100개 집어넣으면 Array안에 숫자100개가 들어가야하고요.
+            어레이라는 함수를 어떻게 만들면 될까요? (new 키워드 사용금지)
+            */
+        }
+        console.log("5. ");
+        exam_05();
+
+        function exam_06(){
+            var numbers = [2,3,4,5,6,1,3,2,5,5,4,6,7];
+            //최댓값 구하기
+            console.log(Math.max(...numbers));
+        }
+        console.log("6.");
+        exam_06();
+
+        function exam_07(){
+            function 정렬(a){
+                //어떤 코드가 들어가야 할까요?
+                var arr = [...a];
+                arr = arr.sort();
+                console.log(arr);
+            }
+            정렬('bear'); 
+        }
+        console.log("7.");
+        exam_07();
+
+        function exam_08(){
+            function 글자세기(txt){
+                var obj = {};
+                var data = [...txt];
+                data.forEach(function(a){
+                    if(obj[a] > 0){
+                        obj[a]++;
+                    }else{
+                        obj[a] = 1;
+                    }
+                });
+                console.log(obj);
+            }
+            //{a : 2, b : 3, c : 1}로 출력하는 함수?
+            글자세기('aacbbb');
+        }
+        console.log("8. ")
+        exam_08();
+        var name1 = {name : '김'};
+        function change(obj){
+            obj = {name : 'park'};
+        }
+        change(name1);
+    </script>
+</body>
+</html>

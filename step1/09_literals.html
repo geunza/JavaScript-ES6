@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>literal</title>
+</head>
+<body>
+    <div></div>
+
+    <script>
+        var str1 = `손흥
+        민`;
+        //console.log(str1);
+
+        var var1 = '손흥민';
+        var str2 = `안녕하세요 저는 ${ var1 }입니다.`;
+        //console.log(str2);
+
+        function fnc1(){
+            return 10;
+        }
+
+        //console.log(fnc1`안녕하세요 저는 ${var1}입니다.`); // tagged literal
+
+        function 해체분석기(strs, vars, vars2, vars3){ // 첫번째 파라미터는 문자를 Array화, 두번째 파라미터부터는 변수,
+            // console.log(strs);
+            // console.log(vars);
+            // console.log(vars2);
+            console.log(strs[1] + vars + strs[0]);
+        }
+
+        해체분석기`안녕하세요 ${var1} 입니다. ${var1}`
+        /*
+            장점
+              1. 엔터키 가능
+              2. 중간에 변수 넣기 쉬움
+
+            사용 예시
+              1. 글자의 순서를 변경하고 싶을때.
+        */
+    </script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>this&arrow function</title>
+</head>
+<body>
+    <div></div>
+    <button id="btn">버튼</button>
+
+    <script>
+        var obj = {
+            fnc : () => {
+                return this;
+            },
+            fnc2 : function(){
+                return this;
+            }
+        }
+
+        document.getElementById("btn").addEventListener("click", (e) => {
+            console.log(e.currentTarget);
+            console.log(this);
+        });
+
+        [1, 2, 3, 4].forEach(a=>console.log(a));
+
+        // 파라미터가 하나뿐일때 소괄호 생략 가능
+        // 한줄짜리 코드면 중괄호도 생략 가능
+        // fnc1와 fnc2는 동일한 함수
+        var fnc1 = (a) => {
+            return a + 10;
+        }
+        var fnc2 = a => a + 10;
+        
+        /*
+        함수는 만드는 이유
+            1. 큰 기능을 만들고 싶을 때(기능을 한 단어로 축약)
+            2. 입출력 기능을 하는 기계를 만들고 싶을 때
+        function fnc1(){
+        }
+        var fnc1 = function(){
+        }
+        var fnc1 = () => {
+        }
+        */
+    </script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ES5환경의 상속(create)</title>
+</head>
+<body>
+    <script>
+        //var 변수 = Object.create(prototype);
+        var parent = {name : 'Kim', age : 50}
+        var child = Object.create(parent);
+        console.log(parent);
+        child.age = 20;
+        console.log(child.age);
+        var child2 = Object.create(child);
+        console.log(child2.name);
+        console.log(child2.age);
+    </script>    
+</body>
+</html>

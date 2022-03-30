@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>class/ extends/ getter/ setter 연습문제 5개</title>
+</head>
+<body>
+    <script>
+        //1. class구조 만들어보기
+        //var 강아지1 = { type : '말티즈', color : 'white' };
+        //var 강아지2 = { type : '진돗개', color : 'brown' }; 
+        class dog{
+            constructor(type, color){
+                this.type = type;
+                this.color = color;
+            }
+            agePlus(){
+                if(this instanceof cat){
+                    return this.age+1;
+                }
+            }
+        }
+        var dog1 = new dog('말티즈', 'white');
+        var dog2 = new dog('진돗개', 'brown');
+        console.log(dog1);
+        console.log(dog2);
+
+        //2. 비슷한 class 하나 더 만들기
+        //var 고양이1 = { type : '코숏', color : 'white', age : 5 };
+        //var 고양이2 = { type : '러시안블루', color : 'brown', age : 2 }; 
+        class cat extends dog{
+            constructor(type,color, age){
+                super(type,color);
+                this.age = age;
+            }
+        }
+        var cat1 = new cat('코숏', 'white',5);
+        var cat2 = new cat('러시안블루', 'brown',2);
+        console.log(cat1);
+        console.log(cat2);
+        
+
+        //4. get/set을 이용해보기
+        class unit{
+            constructor(){
+                this.power = 5;
+                this.health = 100;
+            }
+            get battlePoint(){
+                return this.power + this.health;
+            }
+            set heal(heal){
+                this.health = this.health + heal;
+            }
+        }
+        var unit1 = new unit();
+        console.log(unit1);
+        console.log(unit1.battlePoint);
+        unit1.heal = 50;
+        console.log(unit1);
+
+        //5. get/set을 이용해보기2
+        var data = {
+            odd : [],
+            even : [],
+            arrange(a){
+                var target = arguments;
+                console.log(target);
+                for(var numb of target){
+                    var check = numb % 2;
+                    if(check == 1){
+                        //홀수
+                        this.odd.push(numb);
+                    }else if(check == 0){
+                        //짝수
+                        this.even.push(numb);
+                    }else{
+                        //console.log("숫자만 입력");
+                    }
+                }
+            },
+            printAll(){
+                var arr = [...this.odd, ...this.even];
+                arr.sort();
+                return arr;
+            }
+        }
+        data.arrange(1,2,3,4,5);
+    </script>
+</body>
+</html>

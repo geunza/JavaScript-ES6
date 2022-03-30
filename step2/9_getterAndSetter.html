@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>getter, setter 대체 왜 쓰는지 알아보기</title>
+</head>
+<body>
+
+    <script>
+        //class에서의 getter/setter
+        class human{
+            constructor(){
+                this.name = "Park";
+                this.age = 20;
+            }
+            get nextAge(){
+                return this.age + 1;
+            }
+            set setAge(age){
+                this.age = parseInt(age);
+            }
+        }
+        var human1 = new human(); 
+    </script>    
+    <!-- <script>
+        //obj에서의 getter/setter
+        var human = {
+            name : 'Park',
+            age : 30,
+            //nextAge(){
+            //    return this.age + 1;
+            //},
+            //setAge(age){
+            //    this.age = parseInt(age);
+            //}
+            get nextAge(){
+                return this.age + 1; //get은 return을 필수로 요구.
+            }, //getter
+            set setAge(age){ //set은 파라미터를 '1개'를 필수로 요구.
+                this.age = parseInt(age);
+            }, //setter
+        }
+        /*
+            함수를 만들어 object 데이터를 다루는 이유
+                1. 사람.age[1].age2.age3 등등등 큰 오브젝트에서의 데이터 다룰 때에 복잡성 최소화
+        */
+        // human.nextAge() == human.age + 1 . 둘의 결과는 동일
+        human.age = '30';
+        console.log(human);
+        //human.setAge('30'); // 데이터를 꺼내거나 / 수정하거나 할 때에 편리&실수방지&관리가능
+        //console.log(human);
+        human.setAge = '20'; // 데이터를 꺼내거나 / 수정하거나 할 때에 편리&실수방지&관리가능
+        console.log(human);
+        
+    </script> -->
+
+</body>
+</html>

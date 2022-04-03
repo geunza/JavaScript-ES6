@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>틀린그림 찾기능력이 향상되는 Destructuring 문법</title>
+</head>
+<body>
+    
+    <script>
+
+        // 4. 함수 파라미터 만들 때
+        var obj = {name : 'Kim', age : 30};
+        function fnc1(params){
+            console.log(params);
+        }
+        function fnc2({name, age}){
+            console.log(name);
+            console.log(age);
+        }
+        function fnc3([name, age]){
+            console.log(name);
+            console.log(age);
+        }
+        fnc1(obj);
+        fnc2(obj);
+        fnc3([1,2]);
+
+        /*
+        // 3. 변수를 object에 집어넣고 싶은 경우
+        var name = 'Kim';
+        var age = 30;
+        var obj = {name : name, age : age};
+        var obj2 = {name, age}; //변수와 key값이 동일할 때
+        console.log(obj);
+        console.log(obj2); 
+        */
+
+
+        /*
+        // 2. object
+        var obj = {name : 'Kim', age : 30};
+        //var name = obj.name;
+        //var age = obj.age;
+        var {name : 이름, age : 나이 = 31} = {name : 'Kim', age : 30} //위치만 맞춰주는 것이 아니라, 변수명과 key값을 동일하게 작성해야함
+        console.log(name);
+        console.log(이름);
+        console.log(나이);
+        */
+
+        /*
+        // 1. arr
+        var arr = [2,3,4];
+        var [a, b, c = 10] = [2,  3];
+        console.log(a);
+        console.log(b);
+        console.log(c);
+        */
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ES6 Promise 간단 연습문제 & 해설</title>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script> 
+</head>
+<body>
+    <img id="test" src="https://codingapple1.github.io/kona.jpg">
+
+    <script>
+        var pro1 = new Promise(function(success, fail){
+            $.ajax({
+                type:'GET',
+                url:'https://codingapple1.github.io/hello.txt',
+            }).done(function(result){
+                success(result);
+            });
+        });
+        pro1.then(function(txt){
+            console.log(txt);
+            var pro2 = new Promise(function(success, fail){
+                $.ajax({
+                    type:'GET',
+                    url:'https://codingapple1.github.io/hello2.txt',
+                }).done(function(result){
+                    success(result);
+                });
+            });
+            return pro2;
+        }).then(function(txt){
+            console.log(txt);
+        });
+    </script>
+    <script>
+        /*
+        var pro = new Promise(function(success, fail){
+            $.ajax({
+                type: 'GET',
+                url : 'https://codingapple1.github.io/hello.txt',
+            }).done(function(result){
+                var txt = result;
+                success(txt);
+            });
+        });
+        pro.then(function(txt){
+            console.log(txt);
+        }).catch(function(){
+
+        });
+        */
+    </script>
+    <script>
+        /*
+        var img = document.getElementById("test");
+        var pro = new Promise(function (success,fail){
+            img.addEventListener('load', function(){
+                success();
+            });
+            img.addEventListener('error', function(){
+                fail();
+            });
+        });
+        pro.then(function(){
+            console.log("로드 성공")
+        }).catch(function(){
+            console.log("로드 실패")
+        });
+        */
+    </script>
+</body>
+</html>

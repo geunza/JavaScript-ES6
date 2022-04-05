@@ -7,6 +7,44 @@
     <title>Stack, Queue를 이용한 웹브라우저 동작원리</title>
 </head>
 <body>
+    <div class="wrap">
+        <p>웹브라우저 내부</p>
+        <div class="heap">heap</div>
+        <div class="stack">stack</div>
+        <div class="waiting">waiting</div>
+        <div class="queue">queue</div>
+    </div>
+    <script>
+        /*
+        웹 브라우저의 동작 원리
+          - 알아야 하는 이유 : 우리가 작성한 JS를 브라우저가 실행시켜 주기 때문
+          - Heap : 변수들이 저장되있는 공간(중요X)
+
+          - Stack : 
+            - 코드를 한 줄 한 줄 실행시켜주는 공간
+            - 하나뿐이기에 코드를 한 번에 한 줄 씩만 실행 가능(Single threaded language)
+            - 바로 실행 할 수 없는 코드(setTimeout, Ajax 등)는 대기실로 이동.
+            
+          - Queue : 
+            - 대기실에서 Queue를 통해 Stack으로 하나씩 올려보내짐(Stack이 비어있을 때만)
+            
+
+        교훈 
+          - 쓸데없이 Stack과 Queue를 바쁘게 만들지 말자 => 유저가 사용함에 있어서 불편함을 느낌.
+          - Stack에서 한번에 한줄씩 실행됨 => 동기적 언어
+          - 실행을 제껴두고 나중에 실행할 때도 있음 => 비동기적 언어의 특징도 일부 가짐
+        */
+    </script>
+
     
+<style>
+    .wrap{border: 1px solid #000; width:80%; background: #1d1c1d; display:flex; flex-wrap: wrap; padding:20px 40px; font-size:20px; box-sizing: border-box; justify-content: space-between; border-radius:10px;}
+    p{font-size:24px; width:100%; color:#fff; text-align: right; margin-bottom:40px;}
+    .wrap div{color:#fff; height:300px; text-align: center; padding:20px; box-sizing:border-box; text-transform: capitalize; border-radius:15px;}
+    .heap{width:19%;background: #504498;}
+    .stack{width:29%; background: #324797;}
+    .waiting{width:49%; background: #222;}
+    .queue{width:79.5%; margin-left:auto; margin-top:20px; height:100px; text-align: right;background: #41759f;}
+</style>
 </body>
 </html>

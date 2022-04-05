@@ -11,62 +11,65 @@
     <img id="test" src="https://codingapple1.github.io/kona.jpg">
 
     <script>
-        var pro1 = new Promise(function(success, fail){
+        // Q3. Promise chaining 
+        var pro3 = new Promise(function(resolve, reject){
             $.ajax({
-                type:'GET',
-                url:'https://codingapple1.github.io/hello.txt',
+                type : 'GET',
+                url : 'https://codingapple1.github.io/hello.txt'
             }).done(function(result){
-                success(result);
+                resolve(result);
             });
         });
-        pro1.then(function(txt){
-            console.log(txt);
-            var pro2 = new Promise(function(success, fail){
+        pro3.then(function(result){
+            console.log(result);
+
+            var pro4 = new Promise(function(resolve, reject){
                 $.ajax({
-                    type:'GET',
-                    url:'https://codingapple1.github.io/hello2.txt',
+                    type : 'GET',
+                    url : 'https://codingapple1.github.io/hello2.txt',
                 }).done(function(result){
-                    success(result);
+                    resolve(result);
                 });
             });
-            return pro2;
-        }).then(function(txt){
-            console.log(txt);
-        });
+            return pro4;
+        }).then(function(result){
+            console.log(result);
+        })
     </script>
+
     <script>
         /*
-        var pro = new Promise(function(success, fail){
+        // Q2. Ajax 요청이 성공하면 무언가 코드를 실행하고 싶습니다. 
+        var pro2 = new Promise(function(resolve, reject){
             $.ajax({
-                type: 'GET',
-                url : 'https://codingapple1.github.io/hello.txt',
+                type : 'GET',
+                url : 'https://codingapple1.github.io/hello.txt'
             }).done(function(result){
-                var txt = result;
-                success(txt);
+                resolve(result);
             });
         });
-        pro.then(function(txt){
-            console.log(txt);
-        }).catch(function(){
-
+        pro2.then(function(result){
+            console.log(result);
         });
         */
     </script>
+
     <script>
         /*
-        var img = document.getElementById("test");
-        var pro = new Promise(function (success,fail){
+        // Q1. <img> 이미지 로딩 성공시 특정 코드를 실행하고 싶습니다. 
+        var img = document.getElementById('test');
+        var pro1 = new Promise(function(resolve, reject){
             img.addEventListener('load', function(){
-                success();
+                resolve();
             });
             img.addEventListener('error', function(){
-                fail();
+                reject();
             });
         });
-        pro.then(function(){
-            console.log("로드 성공")
+        pro1.then(function(){
+            console.log('이미지 로드 성공');
         }).catch(function(){
-            console.log("로드 실패")
+            console.log('이미지 로드 실패');
         });
         */
     </script>

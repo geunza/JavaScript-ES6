@@ -9,10 +9,45 @@
 <body>
     
     <script>
-        var pro = new Promise(function(succ, fail){
+        // Promise : 코드 디자인 패턴
+        /*
+            var pro = new Promise(function(resolve, reject){ //성공, 실패를 판정하는 기계
+                resolve(result);
+            });
+            pro.then(function(result){
+                //promise가 성공일 경우 실행할 코드
+                console.log(result);
+            }).catch(function(){
+                //promise가 실패일 경우 실행할 코드
+            }).finally(function(){
+                //promise가 성공이든 실패든 실행할 코드
+            })
+
+            // 1. 성공하면 resolved
+            // 2. 판정 대기중이면 pending
+            // 3. 실패하면 rejected 
+        */
+        var pro = new Promise(function (resolve, reject){
+            var i = 0;
+            var timer = setInterval(function(){
+                i++;
+                console.log(i);
+                if(i == 4){
+                    clearInterval(timer);
+                    resolve(i);
+                }
+            }, 1000)
+        });
+        pro.then(function(i){
+            console.log("성공 i = "+ i);
+        }).finally(function(i){
+            console.log("마무리 i = "+ i); 
+        });
+        /*
+        var pro = new Promise(function(resolve, reject){
             setTimeout(function(){
                 var calc = 1 + 1;
-                succ(calc);
+                resolve(calc);
             }, 1000)
         });
 
@@ -21,10 +56,12 @@
         }).catch(function(){
             console.log("B");
         });
+        */
+
         /*
-        var pro = new Promise(function(succ, fail){
+        var pro = new Promise(function(resolve, reject){
             var calc = 1 + 1;
-            succ(calc);
+            resolve(calc);
         });
 
         pro.then(function(calc){

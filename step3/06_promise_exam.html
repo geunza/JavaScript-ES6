@@ -34,6 +34,13 @@
             return pro4;
         }).then(function(result){
             console.log(result);
+        });
+
+        $.ajax({
+            type : 'string',
+            url : 'http://tomz.co.kr/port/css/global.css',
+        }).done(function(result){
+            console.log(result);
         })
     </script>
 

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>for in / for of 반복문과 enumerable, iterable 속성</title>
+</head>
+<body>
+    
+    <script>
+        class Parent{
+
+        }
+        Parent.prototype.name = "Park";
+
+        /*
+            반복문 : 
+                1. 코드를 여러번 실행 할 때
+                2. Array, Object에서 자료 꺼내 쓸 때
+
+                1. for : 기본 반복문
+                2. forEach() : Array전용
+                3. for in : enumerable : Object 전용
+                4. for of : iterable : Array, String, arguments, NodeList, Map, Set
+        */
+        //var obj = { name : 'Kim', age : 30};
+        var obj = new Parent();
+        console.log(Object.getOwnPropertyDescriptor(obj, 'name')); 
+        // writable : (재)작성할 수 있는가
+        // enumerable : 셀 수 있는가(반복문에서 출력할 것인가)
+        for( var key in obj){
+            if(obj.hasOwnProperty(key)){
+                console.log(obj[key]);
+            }
+
+            /*
+                for in 반복문
+                1. enumerable한 것만 반복해 준다.
+                2. 부모로부터 물려받은(prototype) 속성도 반복해준다.
+            */
+        }
+
+        var arr = [2,3,4,5];
+        arr[Symbol.iterator]();
+        for( var data of arr){
+            console.log(data);
+        }
+
+        var arr2 = [2,3,4,5,6,7,8,9];
+        for( var data1 of arr2){
+            for( var data2 of arr2){
+                console.log(`${data1} * ${data2} = ${data1*data2}`);
+            }
+        }
+    </script>
+</body>
+</html>

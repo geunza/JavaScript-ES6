@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>shadow DOM과 template으로 HTML 모듈화하기</title>
+</head>
+<body>
+
+    <custom-input name="PW"></custom-input>
+    <template id="temp_01">
+        <label for="${name}">이메일을 입력하쇼</label><input type="text" id="${name}">
+        <style>label{color:red;}</style>
+    </template>
+
+    <script>
+        class CustomInput extends HTMLElement{
+            connectedCallback(){
+                let name = this.getAttribute('name');
+                this.attachShadow({mode : 'open'});
+                this.shadowRoot.append(temp_01.content.cloneNode(1));
+
+                var el = this.shadowRoot.querySelector('label');
+                el.addEventListener('click', this.sayHi);
+            }
+            sayHi(){
+                console.log("HI");
+            }
+        }
+        customElements.define('custom-input', CustomInput);
+    </script>
+</body>
+</html>

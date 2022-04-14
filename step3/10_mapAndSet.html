@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Map, Set 자료형</title>
+</head>
+<body>
+    
+    <script>
+        // 중복자료를 허용하지 않는 Array 비슷한 Set 자료형
+
+        var attendance = ['john', 'tom', 'andy', 'tom'];
+        attendance = new Set(attendance); // Array to Set
+        attendance = [...attendance]; // Set to Array
+        console.log(attendance);
+
+        var attendance2 = new Set(['john', 'tom', 'andy', 'tom']);
+        attendance2.add('sally');
+        attendance2.add('sally2');
+        attendance2.add('sally1');
+        attendance2.add('sally');
+        attendance2.delete('sally');
+        console.log(attendance2);
+        console.log(attendance2.size);
+        for( var key of attendance2 ){
+            console.log(key);
+        }
+
+
+
+
+
+
+
+
+        /*
+        // key, value를 저장하는 Map 자료형
+        // Map 자료형은 자료간의 연관성을 표현하기 위해 사용.
+        // Object 자료형은 key값으로 String만 가능. Map 자료형은 다 가능.
+        var person = new Map();
+        person.set('name', 'Park');
+        person.set('age', '29');
+        person.set([1,2,3], 'Kim');
+        console.log(person);
+        console.log(person.size);
+
+        var person2 = new Map([
+            ['name', 'Kim'],
+            ['age', 29],
+        ]);
+        console.log(person2)
+
+        for( var key of person.keys()){
+            console.log(key);
+        }
+        */
+    </script>
+</body>
+</html>

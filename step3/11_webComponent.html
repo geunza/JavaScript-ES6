@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Components : 커스텀 HTMl 태그 만들기</title>
+</head>
+<body>
+    <custom-input name="이메일"></custom-input>
+    <custom-input name="비번"></custom-input>
+
+    <script>
+        class CustomInput extends HTMLElement {
+            connectedCallback(){
+                //let 변수 = document.createElement('label');
+                //this.appendChild(변수);
+
+                let name = this.getAttribute('name');
+                this.innerHTML = `<label>${name} 인풋이에요. 입력하셈</label><input>`
+            }
+            static get observedAttributes(){
+                return ['name'];
+            }
+            attributeChangedCallback(){
+                let name = this.getAttribute('name');
+                this.innerHTML = `<label>${name} 인풋이에요. 입력하셈</label><input>`
+            }
+        }
+
+        customElements.define('custom-input', CustomInput);
+    </script>
+</body>
+</html>

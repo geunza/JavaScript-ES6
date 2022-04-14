@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>딱히 쓸모없는 Symbol 자료형</title>
+</head>
+<body>
+    
+    <script>
+        /*
+            Symbol은 자료형의 비밀스런 key값
+        */
+        var symbol = Symbol('설명');
+        var weight = Symbol('My secret weight');
+        var height = Symbol('My secret height');
+
+        var person = { name : 'Park', age : 29};
+        person.weight = 100;
+        person[weight] = 200; // 반복문에서 출력되지 않음. (enumerable X)
+        person[height] = 175;
+        for(var key in person){
+            console.log(key, person[key]);
+        }
+        console.log(person);
+
+        var a = Symbol('설명1');
+        var b = Symbol('설명1'); 
+        var c = Symbol.for('설명2');
+        var d = Symbol.for('설명2');
+        /*
+            설명이 같다고 같은 Symbol이 아님.
+            Symbol 만들때마다 유니크한 Symbol이 생김.
+            Symbol.for(설명)
+            설명을 기준으로 같다 ( c === d)
+        */
+        person[a] = 'Hi';
+        person[b] = 'Hello';
+        person[c] = '안녕';
+        person[d] = 'Bonjour';
+        console.log(person);
+
+        var arr = [2, 3, 4];
+        arr[Symbol.iterator];
+    </script>
+</body>
+</html>
